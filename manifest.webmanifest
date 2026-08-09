@@ -1,0 +1,17 @@
+{
+  "name": "Parity — restrooms you can use",
+  "short_name": "Parity",
+  "description": "Offline restroom and rest stop finder for long-haul drivers. No account, no tracking, everything stays on the phone.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#16171b",
+  "theme_color": "#16171b",
+  "categories": ["travel", "navigation", "utilities"],
+  "icons": [
+    { "src": "shared/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "shared/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "shared/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

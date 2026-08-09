@@ -1,0 +1,1012 @@
+{
+  "format": "parity.dataset",
+  "version": 1,
+  "name": "sample",
+  "generated_at": "2026-08-01T00:00:00Z",
+  "sample": true,
+  "bbox": [
+    -94.9315,
+    39.2,
+    -75.5,
+    41.78
+  ],
+  "attribution": [
+    "Iowa Department of Transportation",
+    "Ohio Department of Transportation",
+    "OpenStreetMap contributors (ODbL)",
+    "US DOT Bureau of Transportation Statistics — Truck Stop Parking (NTAD)"
+  ],
+  "counts": {
+    "places": 33
+  },
+  "warning": "Made-up data. Every place, coordinate and amenity in this file was written by hand to give the app something to run against. None of these stops exist. Do not plan a stop, a break or a night around anything in this file.",
+  "places": [
+    {
+      "id": "bts-truck-stop-parking:501",
+      "name": "Elkton Travel Plaza",
+      "kind": "truck_stop",
+      "lat": 39.5502,
+      "lon": -75.7902,
+      "route": "I-95",
+      "direction": "N",
+      "milepost": 109.5,
+      "state": "MD",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": true,
+        "fuel": true,
+        "truck_parking_spots": 120,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "501",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1022",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "bts-truck-stop-parking:502",
+      "name": "Stuart Truck Plaza",
+      "kind": "truck_stop",
+      "lat": 41.78,
+      "lon": -94.4,
+      "route": "I-80",
+      "direction": "both",
+      "milepost": 76.2,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": true,
+        "fuel": true,
+        "truck_parking_spots": 78,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "502",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "bts-truck-stop-parking:504",
+      "name": "London Rest Area",
+      "kind": "rest_area",
+      "lat": 39.75,
+      "lon": -83,
+      "route": "I-70",
+      "direction": "E",
+      "milepost": 84,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": false,
+        "food": null,
+        "fuel": false,
+        "truck_parking_spots": 26,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "504",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "bts-truck-stop-parking:505",
+      "name": "Bear Truck Parking",
+      "kind": "truck_stop",
+      "lat": 39.7,
+      "lon": -75.5,
+      "route": "US-40",
+      "direction": null,
+      "milepost": null,
+      "state": "DE",
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": false,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": 18,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "505",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "bts-truck-stop-parking:506",
+      "name": "Creston Truck Stop",
+      "kind": "truck_stop",
+      "lat": 41.3,
+      "lon": -94.4,
+      "route": "SR-25",
+      "direction": "both",
+      "milepost": 12,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": false,
+        "food": true,
+        "fuel": true,
+        "truck_parking_spots": 31,
+        "hours": "5am-11pm",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "506",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "bts-truck-stop-parking:507",
+      "name": "Dover South Truck Parking",
+      "kind": "truck_stop",
+      "lat": 39.2,
+      "lon": -75.55,
+      "route": "US-13",
+      "direction": "S",
+      "milepost": 41.8,
+      "state": "DE",
+      "base": {
+        "restroom": false,
+        "family_restroom": null,
+        "ada": null,
+        "showers": false,
+        "food": false,
+        "fuel": false,
+        "truck_parking_spots": 9,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "bts-truck-stop-parking",
+          "native_id": "507",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:1",
+      "name": "Wilton Rest Area",
+      "kind": "rest_area",
+      "lat": 41.5903,
+      "lon": -94.9315,
+      "route": "I-80",
+      "direction": "W",
+      "milepost": 271.4,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": true,
+        "ada": true,
+        "showers": false,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 34,
+        "hours": "24 hours",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "1",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1001",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:2",
+      "name": "Casey Rest Area",
+      "kind": "rest_area",
+      "lat": 41.6504,
+      "lon": -94.7803,
+      "route": "I-80",
+      "direction": "E",
+      "milepost": 220,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": false,
+        "ada": true,
+        "showers": false,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 28,
+        "hours": "24 hours",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "2",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1003",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:3",
+      "name": "Story City Rest Area",
+      "kind": "rest_area",
+      "lat": 41.41,
+      "lon": -94.9,
+      "route": "I-35",
+      "direction": "S",
+      "milepost": 124,
+      "state": "IA",
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "3",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:4",
+      "name": "Perry Wayside",
+      "kind": "rest_area",
+      "lat": 41.43,
+      "lon": -94.8,
+      "route": "SR-141",
+      "direction": "both",
+      "milepost": 8.5,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": false,
+        "ada": false,
+        "showers": false,
+        "food": false,
+        "fuel": null,
+        "truck_parking_spots": 4,
+        "hours": "6am-10pm",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "4",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:5",
+      "name": "Rest area — I-80 W, MP 145.2",
+      "kind": "rest_area",
+      "lat": 41.45,
+      "lon": -94.7,
+      "route": "I-80",
+      "direction": "W",
+      "milepost": 145.2,
+      "state": "IA",
+      "base": {
+        "restroom": false,
+        "family_restroom": false,
+        "ada": false,
+        "showers": false,
+        "food": false,
+        "fuel": null,
+        "truck_parking_spots": 22,
+        "hours": "24 hours",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "5",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:6",
+      "name": "Iowa Welcome Center",
+      "kind": "welcome_center",
+      "lat": 41.47,
+      "lon": -94.6,
+      "route": "I-29",
+      "direction": "N",
+      "milepost": 3.1,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": true,
+        "ada": true,
+        "showers": false,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 12,
+        "hours": "8am-6pm",
+        "staffed": true
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "6",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ia-dot-rest-areas:7",
+      "name": "Victor Rest Area",
+      "kind": "rest_area",
+      "lat": 41.49,
+      "lon": -94.5,
+      "route": "I-80",
+      "direction": "E",
+      "milepost": 197,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": false,
+        "ada": true,
+        "showers": false,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": "24 hours",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "ia-dot-rest-areas",
+          "native_id": "7",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:11",
+      "name": "Madison County Rest Area",
+      "kind": "rest_area",
+      "lat": 39.9003,
+      "lon": -83.4502,
+      "route": "I-70",
+      "direction": "W",
+      "milepost": 9.44,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": false,
+        "ada": true,
+        "showers": null,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 41,
+        "hours": "24/7",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "11",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1010",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:12",
+      "name": "Ohio Welcome Center",
+      "kind": "welcome_center",
+      "lat": 39.9202,
+      "lon": -83.3802,
+      "route": "I-70",
+      "direction": "E",
+      "milepost": 2.1,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": true,
+        "ada": true,
+        "showers": null,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 18,
+        "hours": "8am-8pm",
+        "staffed": true
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "12",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1011",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:13",
+      "name": "Deer Creek Rest Area",
+      "kind": "rest_area",
+      "lat": 39.9402,
+      "lon": -83.3001,
+      "route": "I-70",
+      "direction": "W",
+      "milepost": 15.7,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": false,
+        "ada": true,
+        "showers": null,
+        "food": false,
+        "fuel": null,
+        "truck_parking_spots": 33,
+        "hours": "24/7",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "13",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        },
+        {
+          "source": "osm",
+          "native_id": "node/1012",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:14",
+      "name": "Springfield Wayside",
+      "kind": "rest_area",
+      "lat": 39.85,
+      "lon": -83.5,
+      "route": "SR-4",
+      "direction": "both",
+      "milepost": 3.2,
+      "state": "OH",
+      "base": {
+        "restroom": false,
+        "family_restroom": false,
+        "ada": false,
+        "showers": null,
+        "food": false,
+        "fuel": null,
+        "truck_parking_spots": 6,
+        "hours": "Daylight",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "14",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:15",
+      "name": "Jackson Township Rest Area",
+      "kind": "rest_area",
+      "lat": 39.83,
+      "lon": -83.6,
+      "route": "US-33",
+      "direction": null,
+      "milepost": 21,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": true,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": 11,
+        "hours": "24/7",
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "15",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "oh-dot-rest-areas:16",
+      "name": "Fayette County Welcome Center",
+      "kind": "welcome_center",
+      "lat": 39.81,
+      "lon": -83.7,
+      "route": "I-71",
+      "direction": "S",
+      "milepost": 44.6,
+      "state": "OH",
+      "base": {
+        "restroom": true,
+        "family_restroom": true,
+        "ada": true,
+        "showers": null,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 14,
+        "hours": "6am-10pm",
+        "staffed": true
+      },
+      "sources": [
+        {
+          "source": "oh-dot-rest-areas",
+          "native_id": "16",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1002",
+      "name": "Rest area — I-80 E",
+      "kind": "rest_area",
+      "lat": 41.5906,
+      "lon": -94.9309,
+      "route": "I-80",
+      "direction": "E",
+      "milepost": null,
+      "state": "IA",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1002",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1004",
+      "name": "Casey's General Store",
+      "kind": "fuel",
+      "lat": 41.6702,
+      "lon": -94.72,
+      "route": null,
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1004",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1005",
+      "name": "Truck Parking I-80 MP 60",
+      "kind": "rest_area",
+      "lat": 41.6902,
+      "lon": -94.65,
+      "route": "I-80",
+      "direction": null,
+      "milepost": 60,
+      "state": null,
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": 14,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1005",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1006",
+      "name": "Rest area — US-6 N",
+      "kind": "rest_area",
+      "lat": 41.71,
+      "lon": -94.6,
+      "route": "US-6",
+      "direction": "N",
+      "milepost": null,
+      "state": "IA",
+      "base": {
+        "restroom": false,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1006",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1007",
+      "name": "Brooklyn Truck Stop",
+      "kind": "truck_stop",
+      "lat": 41.73,
+      "lon": -94.55,
+      "route": null,
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": 85,
+        "hours": "24/7",
+        "staffed": true
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1007",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1013",
+      "name": "Pilot Travel Center",
+      "kind": "fuel",
+      "lat": 39.96,
+      "lon": -83.2,
+      "route": null,
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": null,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1013",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1014",
+      "name": "London Weigh Station",
+      "kind": "weigh_station",
+      "lat": 39.985,
+      "lon": -83.1,
+      "route": "I-70",
+      "direction": "W",
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1014",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1020",
+      "name": "Smyrna Rest Area",
+      "kind": "rest_area",
+      "lat": 39.32,
+      "lon": -75.6,
+      "route": "US-13",
+      "direction": "S",
+      "milepost": null,
+      "state": "DE",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": false
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1020",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1021",
+      "name": "Delaware Welcome Center",
+      "kind": "services",
+      "lat": 39.4102,
+      "lon": -75.6231,
+      "route": "I-95",
+      "direction": "both",
+      "milepost": null,
+      "state": "DE",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": true,
+        "showers": false,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 47,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1021",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1023",
+      "name": "Wawa Fuel",
+      "kind": "fuel",
+      "lat": 39.6,
+      "lon": -75.7,
+      "route": null,
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1023",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1024",
+      "name": "Rest area — SR-279 S",
+      "kind": "rest_area",
+      "lat": 39.65,
+      "lon": -75.8,
+      "route": "SR-279",
+      "direction": "S",
+      "milepost": null,
+      "state": "MD",
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": false,
+        "showers": null,
+        "food": null,
+        "fuel": null,
+        "truck_parking_spots": null,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1024",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:node/1025",
+      "name": "Elkton Truck Plaza",
+      "kind": "truck_stop",
+      "lat": 39.7,
+      "lon": -75.9,
+      "route": null,
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": 60,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "node/1025",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:way/2001",
+      "name": "Dexter Service Plaza",
+      "kind": "services",
+      "lat": 41.621,
+      "lon": -94.88,
+      "route": "I-80",
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": null,
+        "family_restroom": null,
+        "ada": null,
+        "showers": true,
+        "food": null,
+        "fuel": true,
+        "truck_parking_spots": 180,
+        "hours": "24/7",
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "way/2001",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "osm:way/2010",
+      "name": "Deer Creek Service Plaza",
+      "kind": "services",
+      "lat": 39.975,
+      "lon": -83.15,
+      "route": "SR-3",
+      "direction": null,
+      "milepost": null,
+      "state": null,
+      "base": {
+        "restroom": true,
+        "family_restroom": null,
+        "ada": null,
+        "showers": null,
+        "food": true,
+        "fuel": null,
+        "truck_parking_spots": 22,
+        "hours": null,
+        "staffed": null
+      },
+      "sources": [
+        {
+          "source": "osm",
+          "native_id": "way/2010",
+          "fetched_at": "2026-08-01T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}

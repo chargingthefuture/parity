@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "about": "Where the base map data comes from. The two fetch scripts read this file; the fetch step is the only part of the pipeline that touches the network. The app never calls any of these endpoints.",
+  "verifiedMeaning": "verified:true means the endpoint address was known to be correct when this file was written. verified:false means the address, the field names, or both are a best guess and must be opened in a browser and checked before the fetch is run. Nothing here has been called from this machine, because the machine that wrote this file has no network access to these hosts.",
+  "priorityMeaning": "Higher priority wins when two sources describe the same physical place and disagree. A state transport department runs the rest areas it publishes and updates its own inventory when a building changes, so it outranks the federal roll-up, which in turn outranks crowd-entered OpenStreetMap tags.",
+  "sources": [
+    {
+      "id": "osm",
+      "kind": "osm",
+      "priority": 1,
+      "description": "OpenStreetMap, queried through Overpass. The only source with worldwide coverage and the only one that carries small unnamed restrooms, but its amenity tags are entered by volunteers and can be years out of date.",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "attribution": "OpenStreetMap contributors (ODbL)",
+      "verified": true,
+      "rateLimitMs": 3000,
+      "timeoutSeconds": 180,
+      "tileDegrees": 1,
+      "note": "Overpass is a shared free service. Keep one request at a time and leave the gap between requests at 3 seconds or more. A mirror such as https://overpass.kumi.systems/api/interpreter can be passed with --endpoint if the main server is busy."
+    },
+    {
+      "id": "bts-truck-stop-parking",
+      "kind": "arcgis",
+      "priority": 2,
+      "description": "US Department of Transportation, Bureau of Transportation Statistics — the Truck Stop Parking layer from the National Transportation Atlas Database. A nationwide list of truck parking locations with space counts, which is the number drivers care about most and the one OpenStreetMap almost never has.",
+      "endpoint": "https://geo.dot.gov/server/rest/services/NTAD/Truck_Stop_Parking/MapServer/0",
+      "attribution": "US DOT Bureau of Transportation Statistics — Truck Stop Parking (NTAD)",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. The layer is published on the BTS geospatial site, but the exact service path changes when BTS republishes the atlas each year, and the field names below were written from memory. Before fetching: open https://geo.dot.gov/server/rest/services (or search the BTS open data site for 'Truck Stop Parking'), find the current layer, open it with ?f=json, and correct both the endpoint and every entry in fieldMap. Then set verified to true.",
+      "maxRecordCount": 1000,
+      "defaultKind": "truck_stop",
+      "state": null,
+      "fieldMap": {
+        "native_id": ["OBJECTID", "FID"],
+        "name": ["NAME", "TRUCK_STOP_NAME", "FACILITY"],
+        "kind": ["FACILITY_TYPE", "TYPE"],
+        "route": ["ROUTE", "HIGHWAY", "ROUTE_ID"],
+        "direction": ["DIRECTION", "DIR"],
+        "milepost": ["MILEPOST", "MILE_POST", "MP"],
+        "state": ["STATE", "STATE_ABBR", "ST"],
+        "base": {
+          "restroom": ["RESTROOM", "RESTROOMS"],
+          "family_restroom": null,
+          "ada": null,
+          "showers": ["SHOWERS", "SHOWER"],
+          "food": ["FOOD", "RESTAURANT"],
+          "fuel": ["FUEL", "DIESEL"],
+          "truck_parking_spots": ["TRUCK_SPACES", "SPACES", "PARKING_SPACES"],
+          "hours": ["HOURS", "OPEN_HOURS"],
+          "staffed": null
+        }
+      },
+      "kindMap": {
+        "Truck Stop": "truck_stop",
+        "Public Rest Area": "rest_area",
+        "Rest Area": "rest_area",
+        "Welcome Center": "welcome_center",
+        "Weigh Station": "weigh_station"
+      }
+    },
+    {
+      "id": "ia-dot-rest-areas",
+      "kind": "arcgis",
+      "priority": 3,
+      "description": "Iowa Department of Transportation — interstate rest areas along I-80, I-35, I-29 and I-380. Iowa publishes an unusually complete set of building amenities.",
+      "endpoint": "https://gis.iowadot.gov/public/rest/services/Rest_Areas/MapServer/0",
+      "attribution": "Iowa Department of Transportation",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. Iowa DOT does publish public map services, but the service folder and layer number here were not confirmed. Before fetching: browse https://gis.iowadot.gov/public/rest/services, find the rest area layer, open it with ?f=json and copy the real field names into fieldMap.",
+      "maxRecordCount": 1000,
+      "defaultKind": "rest_area",
+      "state": "IA",
+      "impliesRestroom": false,
+      "fieldMap": {
+        "native_id": ["OBJECTID"],
+        "name": ["REST_AREA_NAME", "NAME", "SITE_NAME"],
+        "kind": ["FACILITY_TYPE", "TYPE"],
+        "route": ["ROUTE", "ROUTE_NAME", "HIGHWAY"],
+        "direction": ["DIRECTION", "DIR", "TRAVEL_DIR"],
+        "milepost": ["MILEPOST", "MP"],
+        "state": null,
+        "base": {
+          "restroom": ["RESTROOMS", "RESTROOM"],
+          "family_restroom": ["FAMILY_RESTROOM", "FAMILY"],
+          "ada": ["ADA", "ADA_ACCESSIBLE", "ACCESSIBLE"],
+          "showers": ["SHOWERS"],
+          "food": ["VENDING", "FOOD"],
+          "fuel": null,
+          "truck_parking_spots": ["TRUCK_PARKING", "TRUCK_SPACES"],
+          "hours": ["HOURS", "SEASON"],
+          "staffed": ["STAFFED", "ATTENDANT"]
+        }
+      },
+      "kindMap": {
+        "Rest Area": "rest_area",
+        "Welcome Center": "welcome_center",
+        "Weigh Station": "weigh_station",
+        "Parking Only": "rest_area"
+      }
+    },
+    {
+      "id": "oh-dot-rest-areas",
+      "kind": "arcgis",
+      "priority": 3,
+      "description": "Ohio Department of Transportation — rest areas and welcome centres on the Ohio interstate system.",
+      "endpoint": "https://gis.dot.state.oh.us/arcgis/rest/services/TIMS/Rest_Areas/MapServer/0",
+      "attribution": "Ohio Department of Transportation",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. Ohio DOT runs a public ArcGIS server and a transport information system called TIMS, but this exact service path was not confirmed. Before fetching: browse https://gis.dot.state.oh.us/arcgis/rest/services, find the rest area layer, and correct the endpoint and fieldMap from its ?f=json description.",
+      "maxRecordCount": 1000,
+      "defaultKind": "rest_area",
+      "state": "OH",
+      "fieldMap": {
+        "native_id": ["OBJECTID"],
+        "name": ["REST_AREA", "NAME", "SITE_NAME"],
+        "kind": ["SITE_TYPE", "TYPE"],
+        "route": ["ROUTE_ID", "ROUTE", "RTE"],
+        "direction": ["DIRECTION", "DIR"],
+        "milepost": ["MILEPOST", "LOG_POINT", "MP"],
+        "state": null,
+        "base": {
+          "restroom": ["RESTROOM", "RESTROOMS"],
+          "family_restroom": ["FAMILY_RESTROOM"],
+          "ada": ["ADA", "HANDICAP_ACCESS"],
+          "showers": ["SHOWERS"],
+          "food": ["VENDING", "FOOD_SERVICE"],
+          "fuel": ["FUEL"],
+          "truck_parking_spots": ["TRUCK_SPACES", "TRUCK_PARKING"],
+          "hours": ["HOURS"],
+          "staffed": ["STAFFED"]
+        }
+      },
+      "kindMap": {
+        "Rest Area": "rest_area",
+        "Welcome Center": "welcome_center",
+        "Travel Information Center": "welcome_center"
+      }
+    },
+    {
+      "id": "tx-dot-rest-areas",
+      "kind": "arcgis",
+      "priority": 3,
+      "description": "Texas Department of Transportation — safety rest areas, picnic areas and travel information centres. Texas matters out of proportion to its share of stops because of the distances between them.",
+      "endpoint": "https://services.arcgis.com/KTcxiTD9dsQw4r7Z/arcgis/rest/services/TxDOT_Safety_Rest_Areas/FeatureServer/0",
+      "attribution": "Texas Department of Transportation",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. TxDOT publishes through ArcGIS Online, and the organisation identifier in the address above is from memory and may belong to a different agency. Before fetching: search the TxDOT open data site for the safety rest area layer, copy its FeatureServer address, and correct the fieldMap from ?f=json.",
+      "maxRecordCount": 2000,
+      "defaultKind": "rest_area",
+      "state": "TX",
+      "fieldMap": {
+        "native_id": ["OBJECTID"],
+        "name": ["SRA_NAME", "NAME", "FACILITY_NAME"],
+        "kind": ["FACILITY_TYPE", "SITE_TYPE"],
+        "route": ["HIGHWAY", "RTE_NM", "ROUTE"],
+        "direction": ["DIRECTION", "TRAVEL_DIRECTION", "DIR"],
+        "milepost": ["MILE_POINT", "DFO", "MILEPOST"],
+        "state": null,
+        "base": {
+          "restroom": ["RESTROOM", "RESTROOMS"],
+          "family_restroom": ["FAMILY_RESTROOM"],
+          "ada": ["ADA_COMPLIANT", "ADA"],
+          "showers": null,
+          "food": ["VENDING"],
+          "fuel": null,
+          "truck_parking_spots": ["TRUCK_PARKING_SPACES", "TRUCK_SPACES"],
+          "hours": ["HOURS_OF_OPERATION", "HOURS"],
+          "staffed": ["STAFFED", "ATTENDED"]
+        }
+      },
+      "kindMap": {
+        "Safety Rest Area": "rest_area",
+        "Picnic Area": "rest_area",
+        "Travel Information Center": "welcome_center",
+        "Rest Area": "rest_area"
+      }
+    },
+    {
+      "id": "wa-dot-safety-rest-areas",
+      "kind": "arcgis",
+      "priority": 3,
+      "description": "Washington State Department of Transportation — safety rest areas, including which ones close for the winter, which matters for a night stop in the mountain passes.",
+      "endpoint": "https://data.wsdot.wa.gov/arcgis/rest/services/Shared/SafetyRestAreas/MapServer/0",
+      "attribution": "Washington State Department of Transportation",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. The host data.wsdot.wa.gov does serve WSDOT map services, but the folder, service name and layer number here were not confirmed. Before fetching: browse https://data.wsdot.wa.gov/arcgis/rest/services, find the safety rest area layer, and correct the endpoint and fieldMap.",
+      "maxRecordCount": 1000,
+      "defaultKind": "rest_area",
+      "state": "WA",
+      "fieldMap": {
+        "native_id": ["OBJECTID"],
+        "name": ["RestAreaName", "NAME", "LOCATION"],
+        "kind": ["SiteType", "TYPE"],
+        "route": ["StateRouteNumber", "SRNumber", "ROUTE"],
+        "direction": ["Direction", "DIR"],
+        "milepost": ["Milepost", "ARM", "MP"],
+        "state": null,
+        "base": {
+          "restroom": ["Restrooms", "RESTROOM"],
+          "family_restroom": ["FamilyRestroom"],
+          "ada": ["ADAAccessible", "ADA"],
+          "showers": null,
+          "food": ["Vending"],
+          "fuel": null,
+          "truck_parking_spots": ["TruckSpaces", "TruckParking"],
+          "hours": ["Hours", "SeasonalStatus"],
+          "staffed": ["Staffed"]
+        }
+      },
+      "kindMap": {
+        "Safety Rest Area": "rest_area",
+        "Rest Area": "rest_area",
+        "Welcome Center": "welcome_center"
+      }
+    },
+    {
+      "id": "fl-dot-rest-areas",
+      "kind": "arcgis",
+      "priority": 3,
+      "description": "Florida Department of Transportation — rest areas, welcome centres and weigh stations on the state highway system.",
+      "endpoint": "https://gis.fdot.gov/arcgis/rest/services/Rest_Areas/MapServer/0",
+      "attribution": "Florida Department of Transportation",
+      "verified": false,
+      "note": "GUESSED ADDRESS AND GUESSED FIELD NAMES. FDOT hosts public map services at gis.fdot.gov, but this service name and layer number were not confirmed, and Florida also publishes some layers through ArcGIS Online instead. Before fetching: browse https://gis.fdot.gov/arcgis/rest/services, find the rest area layer, and correct the endpoint and fieldMap.",
+      "maxRecordCount": 1000,
+      "defaultKind": "rest_area",
+      "state": "FL",
+      "fieldMap": {
+        "native_id": ["OBJECTID"],
+        "name": ["FACILITY_NAME", "NAME", "SITE_NAME"],
+        "kind": ["FACILITY_TYPE", "TYPE"],
+        "route": ["ROADWAY", "ROUTE", "SR"],
+        "direction": ["DIRECTION", "DIR"],
+        "milepost": ["MILEPOST", "BEGIN_POST"],
+        "state": null,
+        "base": {
+          "restroom": ["RESTROOMS"],
+          "family_restroom": ["FAMILY_RESTROOM"],
+          "ada": ["ADA"],
+          "showers": null,
+          "food": ["VENDING"],
+          "fuel": null,
+          "truck_parking_spots": ["TRUCK_SPACES"],
+          "hours": ["HOURS"],
+          "staffed": ["STAFFED"]
+        }
+      },
+      "kindMap": {
+        "Rest Area": "rest_area",
+        "Welcome Center": "welcome_center",
+        "Weigh Station": "weigh_station"
+      }
+    }
+  ]
+}

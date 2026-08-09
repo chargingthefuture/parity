@@ -1,0 +1,157 @@
+{
+  "objectIdFieldName": "OBJECTID",
+  "geometryType": "esriGeometryPoint",
+  "spatialReference": { "wkid": 4326, "latestWkid": 4326 },
+  "fields": [
+    { "name": "OBJECTID", "type": "esriFieldTypeOID", "alias": "OBJECTID" },
+    { "name": "REST_AREA_NAME", "type": "esriFieldTypeString", "alias": "Rest Area Name", "length": 80 },
+    { "name": "FACILITY_TYPE", "type": "esriFieldTypeString", "alias": "Facility Type", "length": 40 },
+    { "name": "ROUTE", "type": "esriFieldTypeString", "alias": "Route", "length": 30 },
+    { "name": "DIRECTION", "type": "esriFieldTypeString", "alias": "Direction", "length": 15 },
+    { "name": "MILEPOST", "type": "esriFieldTypeDouble", "alias": "Milepost" },
+    { "name": "RESTROOMS", "type": "esriFieldTypeString", "alias": "Restrooms", "length": 3 },
+    { "name": "FAMILY_RESTROOM", "type": "esriFieldTypeString", "alias": "Family Restroom", "length": 3 },
+    { "name": "ADA", "type": "esriFieldTypeString", "alias": "ADA Accessible", "length": 10 },
+    { "name": "SHOWERS", "type": "esriFieldTypeString", "alias": "Showers", "length": 3 },
+    { "name": "VENDING", "type": "esriFieldTypeString", "alias": "Vending", "length": 3 },
+    { "name": "TRUCK_PARKING", "type": "esriFieldTypeInteger", "alias": "Truck Parking Spaces" },
+    { "name": "HOURS", "type": "esriFieldTypeString", "alias": "Hours", "length": 30 },
+    { "name": "STAFFED", "type": "esriFieldTypeString", "alias": "Staffed", "length": 3 }
+  ],
+  "exceededTransferLimit": false,
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "REST_AREA_NAME": "Wilton Rest Area",
+        "FACILITY_TYPE": "Rest Area",
+        "ROUTE": "Interstate 80",
+        "DIRECTION": "Westbound",
+        "MILEPOST": 271.4,
+        "RESTROOMS": "Y",
+        "FAMILY_RESTROOM": "Y",
+        "ADA": "Y",
+        "SHOWERS": "N",
+        "VENDING": "Y",
+        "TRUCK_PARKING": 34,
+        "HOURS": "24 hours",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -94.9315, "y": 41.5903 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "REST_AREA_NAME": "Casey Rest Area",
+        "FACILITY_TYPE": "Rest Area",
+        "ROUTE": "I 80",
+        "DIRECTION": "EB",
+        "MILEPOST": 220.0,
+        "RESTROOMS": "Y",
+        "FAMILY_RESTROOM": "N",
+        "ADA": "Y",
+        "SHOWERS": "N",
+        "VENDING": "Y",
+        "TRUCK_PARKING": 28,
+        "HOURS": "24 hours",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -94.7803, "y": 41.6504 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "REST_AREA_NAME": "Story City Rest Area",
+        "FACILITY_TYPE": "Rest Area",
+        "ROUTE": "I 35",
+        "DIRECTION": "SB",
+        "MILEPOST": 124.0,
+        "RESTROOMS": "",
+        "FAMILY_RESTROOM": "",
+        "ADA": "UNKNOWN",
+        "SHOWERS": "",
+        "VENDING": "",
+        "TRUCK_PARKING": null,
+        "HOURS": "",
+        "STAFFED": ""
+      },
+      "geometry": { "x": -94.9, "y": 41.41 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "REST_AREA_NAME": "Perry Wayside",
+        "FACILITY_TYPE": "Rest Area",
+        "ROUTE": "IA 141",
+        "DIRECTION": "Both",
+        "MILEPOST": 8.5,
+        "RESTROOMS": "Y",
+        "FAMILY_RESTROOM": "N",
+        "ADA": "N",
+        "SHOWERS": "N",
+        "VENDING": "N",
+        "TRUCK_PARKING": 4,
+        "HOURS": "6am-10pm",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -94.8, "y": 41.43 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "REST_AREA_NAME": null,
+        "FACILITY_TYPE": "Parking Only",
+        "ROUTE": "I 80",
+        "DIRECTION": "WB",
+        "MILEPOST": 145.2,
+        "RESTROOMS": "N",
+        "FAMILY_RESTROOM": "N",
+        "ADA": "N",
+        "SHOWERS": "N",
+        "VENDING": "N",
+        "TRUCK_PARKING": 22,
+        "HOURS": "24 hours",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -94.7, "y": 41.45 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "REST_AREA_NAME": "Iowa Welcome Center",
+        "FACILITY_TYPE": "Welcome Center",
+        "ROUTE": "I 29",
+        "DIRECTION": "NB",
+        "MILEPOST": 3.1,
+        "RESTROOMS": "Y",
+        "FAMILY_RESTROOM": "Y",
+        "ADA": "Y",
+        "SHOWERS": "N",
+        "VENDING": "Y",
+        "TRUCK_PARKING": 12,
+        "HOURS": "8am-6pm",
+        "STAFFED": "Y"
+      },
+      "geometry": { "x": -94.6, "y": 41.47 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "REST_AREA_NAME": "Victor Rest Area",
+        "FACILITY_TYPE": "Rest Area",
+        "ROUTE": "I 80",
+        "DIRECTION": "EB",
+        "MILEPOST": 197.0,
+        "RESTROOMS": "Y",
+        "FAMILY_RESTROOM": "N",
+        "ADA": "Y",
+        "SHOWERS": "N",
+        "VENDING": "Y",
+        "TRUCK_PARKING": -1,
+        "HOURS": "24 hours",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -94.5, "y": 41.49 }
+    }
+  ]
+}

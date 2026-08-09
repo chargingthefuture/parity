@@ -1,0 +1,150 @@
+{
+  "objectIdFieldName": "OBJECTID",
+  "globalIdFieldName": "",
+  "geometryType": "esriGeometryPoint",
+  "spatialReference": { "wkid": 4326, "latestWkid": 4326 },
+  "fields": [
+    { "name": "OBJECTID", "type": "esriFieldTypeOID", "alias": "OBJECTID" },
+    { "name": "NAME", "type": "esriFieldTypeString", "alias": "Name", "length": 100 },
+    { "name": "FACILITY_TYPE", "type": "esriFieldTypeString", "alias": "Facility Type", "length": 50 },
+    { "name": "ROUTE", "type": "esriFieldTypeString", "alias": "Route", "length": 25 },
+    { "name": "DIRECTION", "type": "esriFieldTypeString", "alias": "Direction", "length": 10 },
+    { "name": "MILEPOST", "type": "esriFieldTypeDouble", "alias": "Milepost" },
+    { "name": "STATE", "type": "esriFieldTypeString", "alias": "State", "length": 2 },
+    { "name": "RESTROOM", "type": "esriFieldTypeString", "alias": "Restroom", "length": 3 },
+    { "name": "SHOWERS", "type": "esriFieldTypeString", "alias": "Showers", "length": 3 },
+    { "name": "FOOD", "type": "esriFieldTypeString", "alias": "Food", "length": 3 },
+    { "name": "FUEL", "type": "esriFieldTypeString", "alias": "Fuel", "length": 3 },
+    { "name": "TRUCK_SPACES", "type": "esriFieldTypeInteger", "alias": "Truck Spaces" },
+    { "name": "HOURS", "type": "esriFieldTypeString", "alias": "Hours", "length": 30 }
+  ],
+  "exceededTransferLimit": false,
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 501,
+        "NAME": "Elkton Travel Plaza",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "I-95",
+        "DIRECTION": "NB",
+        "MILEPOST": 109.5,
+        "STATE": "MD",
+        "RESTROOM": "Y",
+        "SHOWERS": "Y",
+        "FOOD": "Y",
+        "FUEL": "Y",
+        "TRUCK_SPACES": 120,
+        "HOURS": "24/7"
+      },
+      "geometry": { "x": -75.7902, "y": 39.5502 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 502,
+        "NAME": "Stuart Truck Plaza",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "I 80",
+        "DIRECTION": "Both",
+        "MILEPOST": 76.2,
+        "STATE": "IA",
+        "RESTROOM": "Y",
+        "SHOWERS": "Y",
+        "FOOD": "Y",
+        "FUEL": "Y",
+        "TRUCK_SPACES": 78,
+        "HOURS": "24/7"
+      },
+      "geometry": { "x": -94.4, "y": 41.78 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 503,
+        "NAME": "Unlocated Truck Parking",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "I-70",
+        "DIRECTION": "EB",
+        "MILEPOST": null,
+        "STATE": "OH",
+        "RESTROOM": "Y",
+        "SHOWERS": "N",
+        "FOOD": "N",
+        "FUEL": "Y",
+        "TRUCK_SPACES": 40,
+        "HOURS": "24/7"
+      },
+      "geometry": null
+    },
+    {
+      "attributes": {
+        "OBJECTID": 504,
+        "NAME": "London Rest Area",
+        "FACILITY_TYPE": "Public Rest Area",
+        "ROUTE": "IR 70",
+        "DIRECTION": "EB",
+        "MILEPOST": 84.0,
+        "STATE": "OH",
+        "RESTROOM": "Y",
+        "SHOWERS": "N",
+        "FOOD": "",
+        "FUEL": "N",
+        "TRUCK_SPACES": 26,
+        "HOURS": "24/7"
+      },
+      "geometry": { "x": -83.0, "y": 39.75 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 505,
+        "NAME": "Bear Truck Parking",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "US 40",
+        "DIRECTION": "Unknown",
+        "MILEPOST": null,
+        "STATE": "DE",
+        "RESTROOM": "",
+        "SHOWERS": "N",
+        "FOOD": "N/A",
+        "FUEL": "Y",
+        "TRUCK_SPACES": 18,
+        "HOURS": ""
+      },
+      "geometry": { "x": -75.5, "y": 39.7 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 506,
+        "NAME": "Creston Truck Stop",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "IA 25",
+        "DIRECTION": "N/S",
+        "MILEPOST": 12.0,
+        "STATE": "IA",
+        "RESTROOM": "Y",
+        "SHOWERS": "N",
+        "FOOD": "Y",
+        "FUEL": "Y",
+        "TRUCK_SPACES": 31,
+        "HOURS": "5am-11pm"
+      },
+      "geometry": { "x": -94.4, "y": 41.3 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 507,
+        "NAME": "Dover South Truck Parking",
+        "FACILITY_TYPE": "Truck Stop",
+        "ROUTE": "US 13",
+        "DIRECTION": "SB",
+        "MILEPOST": 41.8,
+        "STATE": "DE",
+        "RESTROOM": "N",
+        "SHOWERS": "N",
+        "FOOD": "N",
+        "FUEL": "N",
+        "TRUCK_SPACES": 9,
+        "HOURS": "24/7"
+      },
+      "geometry": { "x": -75.55, "y": 39.2 }
+    }
+  ]
+}

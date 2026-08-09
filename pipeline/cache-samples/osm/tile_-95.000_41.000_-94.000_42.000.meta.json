@@ -1,0 +1,8 @@
+{
+  "source": "osm",
+  "endpoint": "https://overpass-api.de/api/interpreter",
+  "bbox": [-95, 41, -94, 42],
+  "fetched_at": "2026-08-01T00:00:00Z",
+  "invented": true,
+  "note": "Hand-written sample. These coordinates are made up; nothing here was downloaded."
+}

@@ -1,0 +1,115 @@
+/* Offline OS — shared design system
+   Extracted from the Gut Check app: sodium-vapor highway amber on dark.
+   Every app links this file so the whole OS shares one look. */
+
+:root{
+  --bg:#16171b;
+  --panel:#1f2127;
+  --panel-2:#262931;
+  --line:#33373f;
+  --amber:#ffb000;       /* sodium-vapor highway amber */
+  --amber-dim:#7a5500;
+  --text:#e9e6df;
+  --muted:#8d909a;
+  --green:#4caf7d;
+  --red:#d96a5a;
+  --radius:16px;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;}
+body{max-width:520px;margin:0 auto;padding:18px 16px 48px;}
+
+h1{font-family:'Barlow Semi Condensed','Inter',system-ui,sans-serif;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;font-size:22px;margin:0;}
+.sub{color:var(--muted);font-size:13px;margin:2px 0 0;}
+.date{font-family:'Barlow Semi Condensed','Inter',system-ui,sans-serif;font-weight:600;
+  color:var(--amber);letter-spacing:.05em;text-transform:uppercase;font-size:14px;}
+
+.header{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px;}
+
+/* generic surfaces */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;margin-bottom:14px;}
+.card .lbl{font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--text);
+  margin-bottom:13px;display:flex;justify-content:space-between;align-items:center;}
+.lbl .hint{font-family:'Inter',sans-serif;font-weight:400;text-transform:none;letter-spacing:0;
+  font-size:12px;color:var(--muted);}
+
+/* inputs */
+input,textarea{width:100%;background:var(--panel-2);border:1px solid var(--line);
+  border-radius:9px;color:var(--text);font-size:15px;padding:11px 12px;
+  font-family:inherit;resize:none;}
+input:focus,textarea:focus{outline:none;border-color:var(--amber-dim);}
+
+/* gauge stepper */
+.gauge{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.step{width:64px;height:64px;flex:none;border-radius:50%;border:1px solid var(--line);
+  background:var(--panel-2);color:var(--text);font-size:30px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  user-select:none;transition:transform .05s,background .15s;}
+.step:active{transform:scale(.92);background:#30343d;}
+.readout{flex:1;text-align:center;}
+.readout .num{font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:700;
+  font-size:54px;line-height:1;color:var(--amber);}
+.readout .scale{font-size:11px;color:var(--muted);letter-spacing:.1em;
+  text-transform:uppercase;margin-top:3px;}
+
+/* option toggles */
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.opt{padding:16px 8px;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel-2);color:var(--text);font-size:16px;font-weight:600;
+  text-align:center;cursor:pointer;user-select:none;transition:.12s;
+  font-family:'Barlow Semi Condensed','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;}
+.opt:active{transform:scale(.97);}
+.opt.on-green{background:var(--green);border-color:var(--green);color:#0c1a13;}
+.opt.on-red{background:var(--red);border-color:var(--red);color:#1a0c0a;}
+.opt.on-amber{background:var(--amber);border-color:var(--amber);color:#1a1300;}
+
+/* primary button */
+.btn{width:100%;padding:18px;border:none;border-radius:14px;background:var(--amber);
+  color:#1a1300;font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:700;
+  font-size:19px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  transition:transform .05s;}
+.btn:active{transform:scale(.98);}
+.btn.ghost{background:var(--panel-2);color:var(--text);border:1px solid var(--line);}
+.btn.flash{background:var(--green);color:#0c1a13;}
+/* legacy alias from Gut Check markup */
+.save{width:100%;padding:18px;border:none;border-radius:14px;background:var(--amber);
+  color:#1a1300;font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:700;
+  font-size:19px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  margin-top:4px;transition:transform .05s;}
+.save:active{transform:scale(.98);}
+.saved-flash{background:var(--green);color:#0c1a13;}
+
+.section-title{font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.06em;font-size:15px;color:var(--muted);
+  margin:30px 0 12px;border-top:1px solid var(--line);padding-top:22px;}
+
+/* pills */
+.pills{display:flex;gap:6px;flex-wrap:wrap;}
+.pill{font-size:11px;padding:3px 8px;border-radius:20px;background:var(--panel-2);
+  color:var(--muted);border:1px solid var(--line);}
+.pill.amber{color:var(--amber);border-color:var(--amber-dim);}
+.pill.green{color:var(--green);border-color:#2c5a44;}
+.pill.red{color:var(--red);border-color:#5a312b;}
+
+.empty{color:var(--muted);font-size:14px;text-align:center;padding:20px;}
+.loading{color:var(--muted);text-align:center;padding:40px;font-size:14px;}
+
+/* ---- dashboard launcher grid ---- */
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+a.tile{display:flex;flex-direction:column;gap:8px;text-decoration:none;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;color:var(--text);transition:transform .06s,border-color .15s;}
+a.tile:active{transform:scale(.98);}
+a.tile:hover{border-color:var(--amber-dim);}
+.tile .ico{font-size:30px;line-height:1;}
+.tile .name{font-family:'Barlow Semi Condensed','Inter',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;font-size:16px;}
+.tile .blurb{font-size:12px;color:var(--muted);line-height:1.35;}
+.tile .tag{align-self:flex-start;margin-top:2px;}
