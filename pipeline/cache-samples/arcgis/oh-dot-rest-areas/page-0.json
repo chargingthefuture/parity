@@ -1,0 +1,131 @@
+{
+  "objectIdFieldName": "OBJECTID",
+  "geometryType": "esriGeometryPoint",
+  "spatialReference": { "wkid": 4326, "latestWkid": 4326 },
+  "fields": [
+    { "name": "OBJECTID", "type": "esriFieldTypeOID", "alias": "OBJECTID" },
+    { "name": "REST_AREA", "type": "esriFieldTypeString", "alias": "Rest Area", "length": 80 },
+    { "name": "SITE_TYPE", "type": "esriFieldTypeString", "alias": "Site Type", "length": 40 },
+    { "name": "ROUTE_ID", "type": "esriFieldTypeString", "alias": "Route", "length": 20 },
+    { "name": "DIRECTION", "type": "esriFieldTypeString", "alias": "Direction", "length": 10 },
+    { "name": "LOG_POINT", "type": "esriFieldTypeDouble", "alias": "Log Point" },
+    { "name": "RESTROOM", "type": "esriFieldTypeSmallInteger", "alias": "Restroom" },
+    { "name": "FAMILY_RESTROOM", "type": "esriFieldTypeSmallInteger", "alias": "Family Restroom" },
+    { "name": "ADA", "type": "esriFieldTypeSmallInteger", "alias": "ADA" },
+    { "name": "VENDING", "type": "esriFieldTypeSmallInteger", "alias": "Vending" },
+    { "name": "TRUCK_SPACES", "type": "esriFieldTypeInteger", "alias": "Truck Spaces" },
+    { "name": "HOURS", "type": "esriFieldTypeString", "alias": "Hours", "length": 30 },
+    { "name": "STAFFED", "type": "esriFieldTypeString", "alias": "Staffed", "length": 3 }
+  ],
+  "exceededTransferLimit": false,
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 11,
+        "REST_AREA": "Madison County Rest Area",
+        "SITE_TYPE": "Rest Area",
+        "ROUTE_ID": "IR 70",
+        "DIRECTION": "WB",
+        "LOG_POINT": 9.44,
+        "RESTROOM": 1,
+        "FAMILY_RESTROOM": 0,
+        "ADA": 1,
+        "VENDING": 1,
+        "TRUCK_SPACES": 41,
+        "HOURS": "24/7",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -83.4502, "y": 39.9003 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 12,
+        "REST_AREA": "Ohio Welcome Center",
+        "SITE_TYPE": "Travel Information Center",
+        "ROUTE_ID": "IR 70",
+        "DIRECTION": "EB",
+        "LOG_POINT": 2.1,
+        "RESTROOM": 1,
+        "FAMILY_RESTROOM": 1,
+        "ADA": 1,
+        "VENDING": 1,
+        "TRUCK_SPACES": 18,
+        "HOURS": "8am-8pm",
+        "STAFFED": "Y"
+      },
+      "geometry": { "x": -83.3802, "y": 39.9202 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 13,
+        "REST_AREA": "Deer Creek Rest Area",
+        "SITE_TYPE": "Rest Area",
+        "ROUTE_ID": "IR 70",
+        "DIRECTION": "WB",
+        "LOG_POINT": 15.7,
+        "RESTROOM": 1,
+        "FAMILY_RESTROOM": 0,
+        "ADA": 1,
+        "VENDING": 0,
+        "TRUCK_SPACES": 33,
+        "HOURS": "24/7",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -83.3001, "y": 39.9402 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 14,
+        "REST_AREA": "Springfield Wayside",
+        "SITE_TYPE": "Rest Area",
+        "ROUTE_ID": "SR 4",
+        "DIRECTION": "Both",
+        "LOG_POINT": 3.2,
+        "RESTROOM": 0,
+        "FAMILY_RESTROOM": 0,
+        "ADA": 0,
+        "VENDING": 0,
+        "TRUCK_SPACES": 6,
+        "HOURS": "Daylight",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -83.5, "y": 39.85 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 15,
+        "REST_AREA": "Jackson Township Rest Area",
+        "SITE_TYPE": "Rest Area",
+        "ROUTE_ID": "US 33",
+        "DIRECTION": "N/A",
+        "LOG_POINT": 21.0,
+        "RESTROOM": 1,
+        "FAMILY_RESTROOM": null,
+        "ADA": 1,
+        "VENDING": null,
+        "TRUCK_SPACES": 11,
+        "HOURS": "24/7",
+        "STAFFED": "N"
+      },
+      "geometry": { "x": -83.6, "y": 39.83 }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 16,
+        "REST_AREA": "Fayette County Welcome Center",
+        "SITE_TYPE": "Welcome Center",
+        "ROUTE_ID": "IR 71",
+        "DIRECTION": "SB",
+        "LOG_POINT": 44.6,
+        "RESTROOM": 1,
+        "FAMILY_RESTROOM": 1,
+        "ADA": 1,
+        "VENDING": 1,
+        "TRUCK_SPACES": 14,
+        "HOURS": "6am-10pm",
+        "STAFFED": "Y"
+      },
+      "geometry": { "x": -83.7, "y": 39.81 }
+    }
+  ]
+}

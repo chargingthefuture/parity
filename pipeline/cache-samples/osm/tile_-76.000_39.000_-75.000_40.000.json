@@ -1,0 +1,95 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-01T00:00:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1020,
+      "lat": 39.32,
+      "lon": -75.6,
+      "tags": {
+        "highway": "rest_area",
+        "name": "Smyrna Rest Area",
+        "ref": "U.S. 13",
+        "direction": "S",
+        "toilets": "yes",
+        "unattended": "yes",
+        "is_in:state_code": "DE"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1021,
+      "lat": 39.4102,
+      "lon": -75.6231,
+      "tags": {
+        "highway": "services",
+        "name": "Delaware Welcome Center",
+        "ref": "I-95",
+        "direction": "N/S",
+        "toilets": "yes",
+        "wheelchair": "yes",
+        "food": "yes",
+        "shower": "no",
+        "capacity:hgv": "47",
+        "opening_hours": "24/7",
+        "is_in:state_code": "DE"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1022,
+      "lat": 39.55,
+      "lon": -75.79,
+      "tags": {
+        "amenity": "toilets",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1023,
+      "lat": 39.6,
+      "lon": -75.7,
+      "tags": {
+        "amenity": "fuel",
+        "name": "Wawa Fuel",
+        "hgv": "no",
+        "toilets": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1024,
+      "lat": 39.65,
+      "lon": -75.8,
+      "tags": {
+        "highway": "rest_area",
+        "ref": "MD 279",
+        "direction": "SB",
+        "toilets": "yes",
+        "wheelchair": "no",
+        "is_in:state_code": "MD"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1025,
+      "lat": 39.7,
+      "lon": -75.9,
+      "tags": {
+        "amenity": "truck_stop",
+        "name": "Elkton Truck Plaza",
+        "capacity:hgv": "60",
+        "shower": "yes",
+        "toilets": "yes",
+        "fuel": "yes",
+        "opening_hours": "24/7"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Downloaded answers land here. They can be large, they change every time the fetch step is run,
+# and they can always be downloaded again, so they are not checked in. The folder itself is kept so
+# the fetch and build steps have somewhere to write.
+#
+# The small extracts that ARE checked in live in pipeline/cache-samples/.
+*
+!.gitignore

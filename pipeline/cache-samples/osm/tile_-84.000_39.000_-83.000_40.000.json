@@ -1,0 +1,93 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-01T00:00:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1010,
+      "lat": 39.9001,
+      "lon": -83.45,
+      "tags": {
+        "highway": "rest_area",
+        "name": "Madison County Rest Area",
+        "ref": "I 70",
+        "direction": "Westbound",
+        "toilets": "yes",
+        "wheelchair": "yes",
+        "changing_table": "yes",
+        "is_in:state": "Ohio"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1011,
+      "lat": 39.92,
+      "lon": -83.38,
+      "tags": {
+        "highway": "rest_area",
+        "tourism": "information",
+        "information": "visitor_centre",
+        "name": "Ohio Welcome Center",
+        "ref": "IH-70",
+        "direction": "EB",
+        "toilets": "yes",
+        "food": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1012,
+      "lat": 39.94,
+      "lon": -83.3,
+      "tags": {
+        "amenity": "toilets",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1013,
+      "lat": 39.96,
+      "lon": -83.2,
+      "tags": {
+        "amenity": "fuel",
+        "name": "Pilot Travel Center",
+        "hgv": "yes",
+        "fuel:diesel": "yes",
+        "shower": "yes",
+        "toilets": "yes",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 2010,
+      "center": { "lat": 39.975, "lon": -83.15 },
+      "tags": {
+        "highway": "services",
+        "name": "Deer Creek Service Plaza",
+        "ref": "SR 3",
+        "toilets": "yes",
+        "food": "yes",
+        "capacity:hgv": "22"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1014,
+      "lat": 39.985,
+      "lon": -83.1,
+      "tags": {
+        "amenity": "weighbridge",
+        "name": "London Weigh Station",
+        "ref": "I 70",
+        "direction": "WB"
+      }
+    }
+  ]
+}
