@@ -27,6 +27,7 @@ let meta = db.getMeta();
 let summaries = new Map();     // place id -> rolled-up observations
 let draft = null;              // the log form in progress, kept across redraws
 let lastPaint = 0;
+let renderTicket = 0;          // only the newest redraw may write to the screen
 
 const MI = geo.M_PER_MILE;
 
@@ -66,11 +67,20 @@ async function render() {
     else a.removeAttribute('aria-current');
   });
 
+  /* Drawing a screen means reading the database, so two redraws started close
+   * together can finish in either order. Without this, a slow one that started
+   * earlier could land last and put a stale list back on screen — the driver
+   * would be looking at stops worked out from a position she has already passed.
+   * Each redraw takes a ticket; only the newest one is allowed to write. */
+  const ticket = ++renderTicket;
+  let html;
   try {
-    view.innerHTML = await screen(route.arg);
+    html = await screen(route.arg);
   } catch (err) {
-    view.innerHTML = banner('warn', 'Something went wrong', String(err && err.message || err));
+    html = banner('warn', 'Something went wrong', String(err && err.message || err));
   }
+  if (ticket !== renderTicket) return;
+  view.innerHTML = html;
   lastPaint = Date.now();
 }
 
@@ -78,12 +88,25 @@ window.addEventListener('hashchange', () => { window.scrollTo(0, 0); render(); }
 
 /* A new fix arrives every second or so while moving. Redrawing that often would
  * keep the processor busy for no benefit — the numbers on screen barely change.
- * Redraw at most every four seconds, and never while a form is open. */
+ * So redraws are held to one every four seconds, and never happen while a form
+ * is open.
+ *
+ * A fix that arrives inside that gap is not thrown away: one redraw is booked
+ * for when the gap runs out. Dropping them outright would leave the screen
+ * stuck on an old position whenever fixes stopped arriving. */
+const REDRAW_GAP_MS = 4000;
+let pendingRedraw = null;
+
 loc.subscribe(() => {
   const route = parseRoute();
   if (!NEEDS_POSITION.has(route.name)) return;
-  if (Date.now() - lastPaint < 4000) return;
-  render();
+  const since = Date.now() - lastPaint;
+  if (since >= REDRAW_GAP_MS) { render(); return; }
+  if (pendingRedraw) return;
+  pendingRedraw = setTimeout(() => {
+    pendingRedraw = null;
+    if (NEEDS_POSITION.has(parseRoute().name)) render();
+  }, REDRAW_GAP_MS - since);
 });
 
 /* ---------- shared bits ---------- */

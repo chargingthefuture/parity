@@ -118,21 +118,20 @@ async function loadDataset() {
  * redraws at most every few seconds to keep the processor idle, so the drive
  * has to run long enough for a redraw to fall due.
  */
+const STEP_M = 20;          // 20 m every 700 ms is about 64 mph
+const STEP_MS = 700;
+
 async function driveEast() {
   await context.setGeolocation({ latitude: HERE.lat, longitude: HERE.lon });
   await page.goto(BASE + '/#/', { waitUntil: 'load' });
   await page.waitForSelector('.due .num');
 
-  for (let i = 1; i <= 10; i++) {
-    const at = offset(0, i * 300);
+  for (let i = 1; i <= 30; i++) {
+    const at = offset(0, i * STEP_M);
     await context.setGeolocation({ latitude: at.lat, longitude: at.lon });
-    await page.waitForTimeout(700);
+    await page.waitForTimeout(STEP_MS);
     const heading = await page.textContent('.bar .where b').catch(() => '');
-    if (heading && !/no heading/.test(heading)) {
-      // A redraw may already be in flight; let it land before anything is read.
-      await page.waitForTimeout(500);
-      return;
-    }
+    if (heading && !/no heading/.test(heading)) return;
   }
   throw new Error('the app never worked out a heading from the drive');
 }
@@ -243,10 +242,12 @@ test('a typed note survives tapping another button on the form', async () => {
 
 test('a rated stop is promoted out of the unrated fallback', async () => {
   await driveEast();
-  const text = await page.textContent('#view');
-  assert.match(text, /Rated stops in your window/);
+  const text = (await page.textContent('#view')).replace(/\s+/g, ' ');
+  const heading = await page.textContent('.bar .where b');
+  const shown = `heading=${heading} :: ${text.slice(0, 700)}`;
+  assert.match(text, /Rated stops in your window/, shown);
   const planned = await page.textContent('.stop');
-  assert.match(planned, /Platte River Rest Area/);
+  assert.match(planned, /Platte River Rest Area/, shown);
 });
 
 test('notes export to a file and merge back in without eating anything', async () => {
@@ -328,6 +329,23 @@ test('it works with the network switched off', async () => {
   assert.match(await page.textContent('#view'), /Door faces the truck lot/,
     'notes must be readable with no signal');
   await context.setOffline(false);
+});
+
+test('a receiver jump does not produce a heading pointing back the way she came', async () => {
+  // Coming out of a long dead zone or a tunnel, the next fix can land miles
+  // from the last one. Read as movement, that trail points backwards, which
+  // would put every stop she can actually reach on the "behind you" side and
+  // hide the lot. No heading for a few seconds beats a wrong one.
+  await driveEast();
+  const before = await page.evaluate(async () => (await import('./js/location.js')).state().heading);
+  assert.ok(before != null && Math.abs(before - 90) < 20, `should be driving east first, got ${before}`);
+
+  const back = offset(0, -8000);
+  await context.setGeolocation({ latitude: back.lat, longitude: back.lon });
+  await page.waitForTimeout(1000);
+
+  const after = await page.evaluate(async () => (await import('./js/location.js')).state().heading);
+  assert.equal(after, null, `after a jump the stale heading must be dropped, got ${after}`);
 });
 
 test('the app makes no request to anywhere but its own folder', async () => {

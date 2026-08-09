@@ -217,6 +217,11 @@ worse than useless. The rules in `js/geo.js` are deliberate and are covered by t
 - When neither applies, return unknown and say "side unknown" on screen. Never guess.
 - Hide only what is known to be across the median. Unclear and unknown are both shown, with the
   warning on them: a wrongly hidden stop costs a driver the stop.
+- The heading itself is worked out from where the truck has been, so `js/location.js` throws that
+  trail away when the receiver jumps rather than the truck moving — a fix implying more than about
+  150 mph, or one arriving after three minutes of silence. Coming out of a tunnel or a dead zone
+  otherwise gives a heading pointing back the way she came, which puts every reachable stop on the
+  "behind you" side and hides the lot. No heading for a few seconds beats a wrong one.
 
 ### Stack and layout
 

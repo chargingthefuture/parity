@@ -143,6 +143,13 @@ So the question is answered from whichever evidence is actually good:
 Only what is **known** to be across the median is hidden. Unclear and unknown are both shown with the
 warning on them, because a wrongly hidden stop costs a driver the stop.
 
+The heading behind all of this is worked out from where the truck has actually been, because phones
+report an unreliable heading at low speed. That trail is thrown away when the receiver jumps rather
+than the truck moving — a fix implying more than about 150 mph, or one arriving after three minutes
+of silence. Coming out of a tunnel or a long dead zone otherwise produces a heading pointing back the
+way she came, which would put every stop she can reach on the "behind you" side and hide all of them.
+No heading for a few seconds beats a wrong one.
+
 ---
 
 ## Running it

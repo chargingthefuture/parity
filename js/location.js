@@ -138,7 +138,23 @@ function onFix(pos) {
     at: pos.timestamp || Date.now()
   };
   const prev = history[history.length - 1];
-  if (!prev || roughMetres(prev, last) > 25) {
+
+  /* Throw the trail away when the receiver has jumped rather than the truck
+   * having moved. Two signs of it: a fix that implies a speed no truck can do,
+   * and a fix arriving after a long silence — coming out of a tunnel, a dead
+   * zone, or the app having been shut for an hour. Keeping the old trail across
+   * a jump like that produces a heading pointing back the way she came, which
+   * would put every stop she can actually reach on the "behind you" side and
+   * hide the lot. Better to have no heading for a few seconds than a wrong one. */
+  if (prev) {
+    const gapMs = last.at - prev.at;
+    const jumpM = roughMetres(prev, last);
+    const impliedMps = gapMs > 0 ? jumpM / (gapMs / 1000) : Infinity;
+    if (gapMs > 180000 || impliedMps > 67) history = [];   // 67 m/s is about 150 mph
+  }
+
+  const tail = history[history.length - 1];
+  if (!tail || roughMetres(tail, last) > 25) {
     history.push({ lat: last.lat, lon: last.lon, at: last.at });
     if (history.length > 12) history.shift();
   }
