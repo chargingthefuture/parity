@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+# Serves the repo root as a static site. There is no build step — the app is
+# plain HTML, CSS and JavaScript, so the whole tree is published exactly as it
+# sits in the repo. What is reviewed here is what runs on the phone.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; let an in-progress run finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

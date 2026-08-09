@@ -1,0 +1,12 @@
+# Playwright is reached through a link to the globally installed copy; the app
+# and the pipeline have no dependencies of their own.
+node_modules/
+
+# Raw extracts pulled from the public sources. They are large, they are not this
+# repo's data to redistribute, and the whole point of the pipeline is that they
+# can be fetched again. The hand-written samples in pipeline/cache-samples are
+# checked in on purpose.
+pipeline/cache/*
+!pipeline/cache/.gitignore
+
+.DS_Store
