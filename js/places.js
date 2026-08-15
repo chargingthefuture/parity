@@ -10,7 +10,14 @@
 import * as db from './db.js';
 import { buildIndex, near } from './geo.js';
 
-const BUNDLED = 'data/sample-dataset.json';
+/* The app ships with whichever of these is present, in this order.
+ *
+ * data/dataset.json is real data built from the public sources by
+ * pipeline/make-dataset.mjs. The sample is 33 invented places, kept only so the
+ * app has something to run against before a real dataset has been built. Real
+ * data wins whenever it is there, and the sample carries a flag that puts a
+ * standing warning on screen whenever it is the one loaded. */
+const BUNDLED = ['data/dataset.json', 'data/sample-dataset.json'];
 
 let index = null;         // grid lookup, rebuilt when the dataset changes
 let cache = null;         // every place, in memory — a few thousand small rows
@@ -71,15 +78,21 @@ export async function loadDataset(data) {
 export async function loadBundledIfEmpty() {
   const n = await db.count(db.STORE_PLACES);
   if (n > 0) return n;
-  try {
-    const res = await fetch(BUNDLED, { cache: 'force-cache' });
-    if (!res.ok) return 0;
-    return await loadDataset(await res.json());
-  } catch {
-    // No bundled file and nothing stored yet. The app still runs; the data
-    // screen explains how to load a dataset.
-    return 0;
+  for (const file of BUNDLED) {
+    try {
+      /* force-cache, because this file was copied onto the phone by the service
+       * worker at install. Reading it is not a network round trip and works in
+       * airplane mode on the very first launch. */
+      const res = await fetch(file, { cache: 'force-cache' });
+      if (!res.ok) continue;
+      return await loadDataset(await res.json());
+    } catch {
+      // Try the next one. A missing real dataset is normal before one is built.
+    }
   }
+  // Nothing bundled and nothing stored. The app still runs; the data screen
+  // explains how to load a dataset file.
+  return 0;
 }
 
 /** Every place, plus any stub that arrived attached to someone else's notes. */

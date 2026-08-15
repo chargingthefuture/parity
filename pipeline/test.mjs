@@ -673,3 +673,47 @@ test('every source is described well enough to be fetched, and guesses are marke
   const stateSources = registry.sources.filter((s) => s.kind === 'arcgis' && s.state);
   assert.ok(stateSources.length >= 4, `expected at least 4 state sources, found ${stateSources.length}`);
 });
+
+/* ---- make-dataset.mjs: the one command that builds real data ---- */
+
+const madeReal = await import('./make-dataset.mjs');
+
+test('a ready-made region resolves to a sane rectangle', () => {
+  const area = madeReal.resolveArea({ region: 'us-northeast' });
+  assert.equal(area.name, 'us-northeast');
+  assert.equal(area.bbox.length, 4);
+  const [w, s, e, n] = area.bbox;
+  assert.ok(w < e, 'west must be left of east');
+  assert.ok(s < n, 'south must be below north');
+});
+
+test('every ready-made region is the right way round and on the planet', () => {
+  for (const [name, region] of Object.entries(madeReal.REGIONS)) {
+    const [w, s, e, n] = region.bbox;
+    assert.ok(w < e, `${name}: west must be left of east`);
+    assert.ok(s < n, `${name}: south must be below north`);
+    assert.ok(w >= -180 && e <= 180, `${name}: longitude off the map`);
+    assert.ok(s >= -90 && n <= 90, `${name}: latitude off the map`);
+    assert.ok(region.about, `${name}: needs a plain description`);
+  }
+});
+
+test('a bounding box given the wrong way round is refused, not silently swapped', () => {
+  assert.throws(() => madeReal.resolveArea({ bbox: '10,50,-10,40' }), /west < east/);
+  assert.throws(() => madeReal.resolveArea({ bbox: '-10,50,10,40' }), /south < north/);
+  assert.throws(() => madeReal.resolveArea({ bbox: 'north-ish' }), /four numbers/);
+  assert.throws(() => madeReal.resolveArea({ region: 'narnia' }), /Unknown region/);
+  assert.throws(() => madeReal.resolveArea({}), /Give an area/);
+});
+
+test('an empty build is refused rather than shipped as real data', () => {
+  const problem = madeReal.checkBeforeWriting({ places: [] });
+  assert.ok(problem, 'an empty dataset must not be written');
+  assert.match(problem, /no places/i);
+});
+
+test('sample data can never be written out as real data', () => {
+  assert.ok(madeReal.checkBeforeWriting({ places: [{ id: 'a' }], sample: true }));
+  assert.ok(madeReal.checkBeforeWriting({ places: [{ id: 'a' }], warning: 'made up' }));
+  assert.equal(madeReal.checkBeforeWriting({ places: [{ id: 'a' }] }), null);
+});

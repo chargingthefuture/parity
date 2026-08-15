@@ -257,10 +257,14 @@ guessed address as confirmed, and do not fetch unverified sources without the ex
 
 ### Data that is made up must say so
 
-The dataset that ships with the app is invented so the app has something to run against. It carries
-`"sample": true` and a warning, and the app shows a standing banner while it is loaded. Never
-present invented coordinates as real stops — a driver planning a night stop around one is the
-worst thing this repo could cause.
+`data/sample-dataset.json` is invented so the app has something to run against before real data has
+been built. It carries `"sample": true` and a warning, and the app shows a standing banner the whole
+time it is loaded. Never present invented coordinates as real stops — a driver planning a night stop
+around one is the worst thing this repo could cause.
+
+Real data lives in `data/dataset.json`, built by `node pipeline/make-dataset.mjs`. The app loads
+that file in preference to the sample whenever it is present, so committing it is what replaces the
+sample. That script refuses to write an empty dataset or anything still flagged as a sample.
 
 ### Testing
 

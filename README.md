@@ -185,9 +185,24 @@ everything else runs on Node alone with no dependencies. Name the test files rat
 `"sample": true` and a warning, and the app shows a standing banner while it is loaded. **Do not plan
 a stop around any of it.** Build a real one before relying on the app.
 
-### Building a real dataset
+### Building a real one
 
-`pipeline/` turns public sources into a dataset file. It pulls from:
+One command, on a computer with Wi-Fi:
+
+```
+node pipeline/make-dataset.mjs --region us-northeast
+```
+
+That downloads the real data, joins records describing the same place, and writes
+`data/dataset.json`. Commit that file, bump `VERSION` in `sw.js`, and the app loads it in place of
+the sample on the next launch — the demonstration warning goes with it. `--list-regions` shows the
+ready-made areas; `--bbox west,south,east,north` takes one of your own. `--with-arcgis` also pulls
+the transport department layers you have checked.
+
+It refuses to write a dataset with no places in it, and it refuses to let anything carrying the
+sample flag out as real data.
+
+`pipeline/` pulls from:
 
 - **OpenStreetMap via the Overpass API** — `highway=rest_area`, `highway=services`, `amenity=toilets`,
   `amenity=fuel`, with truck-relevant tags.
