@@ -12,7 +12,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { writeFileSync, mkdirSync, rmSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync, readFileSync, existsSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
@@ -346,6 +346,47 @@ test('a receiver jump does not produce a heading pointing back the way she came'
 
   const after = await page.evaluate(async () => (await import('./js/location.js')).state().heading);
   assert.equal(after, null, `after a jump the stale heading must be dropped, got ${after}`);
+});
+
+test('a real dataset takes the place of the sample, warning and all', async () => {
+  // Dropping data/dataset.json into the repo is how real data ships. The app
+  // must prefer it over the invented sample, and the standing "do not drive to
+  // these" warning must go with it.
+  const realFile = join(ROOT, 'data', 'dataset.json');
+  if (existsSync(realFile)) return;   // a real dataset is already committed; nothing to prove
+
+  const real = {
+    format: 'parity.dataset',
+    version: 1,
+    name: 'test-real',
+    generated_at: '2026-08-15T00:00:00Z',
+    sample: false,
+    attribution: ['OpenStreetMap contributors (ODbL)'],
+    counts: { places: 1 },
+    places: [place('osm:node/900', 'A Genuinely Listed Rest Area', offset(-70, 30 * MI), 'E')]
+  };
+
+  // A context of its own, opened after the file exists, so nothing this run
+  // cached earlier decides the answer.
+  let fresh;
+  try {
+    writeFileSync(realFile, JSON.stringify(real));
+    fresh = await browser.newContext({
+      permissions: ['geolocation'],
+      geolocation: { latitude: HERE.lat, longitude: HERE.lon },
+      viewport: { width: 390, height: 844 }
+    });
+    const freshPage = await fresh.newPage();
+    await freshPage.goto(BASE + '/#/data', { waitUntil: 'load' });
+    await freshPage.waitForSelector('.kv');
+
+    const text = await freshPage.textContent('#view');
+    assert.match(text, /test-real/, `the real dataset should be the loaded one, saw: ${text.replace(/\s+/g, ' ').slice(0, 200)}`);
+    assert.doesNotMatch(text, /Demonstration data/i, 'the sample warning must be gone');
+  } finally {
+    await fresh?.close();
+    if (existsSync(realFile)) unlinkSync(realFile);
+  }
 });
 
 test('the app makes no request to anywhere but its own folder', async () => {

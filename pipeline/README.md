@@ -18,6 +18,7 @@ step, and no lock file.
 
 | File | What it does |
 |---|---|
+| `make-dataset.mjs` | **Needs the internet.** The short way: downloads, joins and writes `data/dataset.json` in one command. Everything below is what it does step by step. |
 | `sources.json` | The list of places the data comes from, and for each one the map from that source's field names onto the schema's fields. |
 | `fetch-osm.mjs` | **Needs the internet.** Downloads OpenStreetMap data through Overpass and saves the raw answers. |
 | `fetch-arcgis.mjs` | **Needs the internet.** Downloads records from any transport department's map service and saves the raw answers. |
@@ -30,7 +31,26 @@ step, and no lock file.
 
 ---
 
-## Running it
+## The short way
+
+```
+node pipeline/make-dataset.mjs --region us-northeast
+```
+
+Downloads OpenStreetMap for that area, joins records about the same place, and writes
+`data/dataset.json` — the file the app ships with. `--list-regions` lists the ready-made areas,
+`--bbox west,south,east,north` takes your own, `--with-arcgis` also pulls the transport department
+layers you have checked, and `--dry-run` says what it would download without asking for anything.
+
+Two things it will not do: write a dataset with no places in it, and write anything still carrying
+the sample flag. Both would put a file that looks real in front of a driver.
+
+Commit the file it writes, and bump `VERSION` in `sw.js` so phones fetch the new copy instead of
+serving the old one.
+
+---
+
+## Running it a step at a time
 
 Do these in order. Step 3 is blocked by steps 1 and 2 — it can only join what has already been
 downloaded. Steps 1 and 2 do not depend on each other and can be done in either order, or only one

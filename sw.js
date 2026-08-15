@@ -8,7 +8,7 @@
  *
  * Bump VERSION on any change, otherwise phones keep serving the old copy.
  */
-var VERSION = 'parity-v1';
+var VERSION = 'parity-v2';
 
 var SHELL = [
   './',
@@ -24,6 +24,10 @@ var SHELL = [
   './js/exchange.js',
   './js/location.js',
   './js/ui.js',
+  /* Real data first, the invented sample as the fallback. Each file is cached
+   * on its own below, so whichever one is absent simply does not get cached and
+   * the app falls back to the other. */
+  './data/dataset.json',
   './data/sample-dataset.json',
   './shared/theme.css',
   './shared/fonts.css',
@@ -76,8 +80,10 @@ self.addEventListener('fetch', function (e) {
   if (req.mode === 'navigate') {
     e.respondWith(
       fetch(req).then(function (res) {
-        var copy = res.clone();
-        caches.open(VERSION).then(function (c) { c.put(req, copy); });
+        if (res && res.ok) {
+          var copy = res.clone();
+          caches.open(VERSION).then(function (c) { c.put(req, copy); });
+        }
         return res;
       }).catch(function () {
         return caches.match(req).then(function (hit) { return hit || caches.match('./index.html'); });
@@ -91,8 +97,14 @@ self.addEventListener('fetch', function (e) {
   e.respondWith(
     caches.match(req).then(function (hit) {
       return hit || fetch(req).then(function (res) {
-        var copy = res.clone();
-        caches.open(VERSION).then(function (c) { c.put(req, copy); });
+        /* Only keep answers that worked. Storing a 404 would freeze a missing
+         * file as permanently missing for everyone on this cache version — the
+         * way a real dataset added later would never be seen, because the
+         * "not found" from before it existed was still being served. */
+        if (res && res.ok) {
+          var copy = res.clone();
+          caches.open(VERSION).then(function (c) { c.put(req, copy); });
+        }
         return res;
       }).catch(function () {
         return caches.match('./index.html');
